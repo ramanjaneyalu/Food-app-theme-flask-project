@@ -5,14 +5,14 @@ from datetime import datetime, timedelta
 
 
 @app.route('/', methods=['GET'])
-def get_movies():
+def get_item():
     request_data = request.get_json()  # getting data from client
     resp = make_response(f"The Cookie has been Set {request_data['itemname']}")
     resp.set_cookie('itemname', request_data['itemname'])
     return resp
 
 @app.route('/', methods=['POST'])
-def add_movie():
+def post_item():
     '''Function to add new movie to our database'''
     # timestring = "17:00-21:00,7:00-10:00,10:45-14:45"
     request_data = request.get_json()  # getting data from client
